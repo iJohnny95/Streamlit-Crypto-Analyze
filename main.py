@@ -12,10 +12,12 @@ from requests.exceptions import RequestException
 
 # Function to clear cache in newer versions
 def clear_cache():
-    if "cache" in dir(st):
-        st.cache.clear()
+    if hasattr(st, "cache_data"):
+        st.cache_data.clear()
+    elif hasattr(st, "cache_resource"):
+        st.cache_resource.clear()
     else:
-        st.caching.clear_cache()  # For older versions that use st.caching
+        st.write("Cache clearing not available.")
 
 # Clear Streamlit cache to avoid issues with old data
 clear_cache()
