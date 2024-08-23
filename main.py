@@ -293,7 +293,7 @@ def provide_insights(data, indicators, timeframe, period):
         price_change_color = "black"
 
     period_label = {
-        "7d": "last 7 days",
+        "5d": "last 7 days",
         "1mo": "last month",
         "6mo": "last 6 months",
         "1y": "last year",
@@ -472,7 +472,7 @@ if view_choice == "Dashboard":
     )
 
     if timeframe == SHORT_TERM:
-        period = st.sidebar.selectbox("Select Period", ["7d", "1mo"])
+        period = st.sidebar.selectbox("Select Period", ["5d", "1mo"])
         interval = "15m"
     elif timeframe == MEDIUM_TERM:
         period = st.sidebar.selectbox("Select Period", ["6mo", "1y", "3y"])
@@ -496,7 +496,7 @@ else:
     )
 
     if timeframe == SHORT_TERM:
-        period = st.sidebar.selectbox("Select Period", ["7d", "1mo"])
+        period = st.sidebar.selectbox("Select Period", ["5d", "1mo"])
         interval = "15m"
     elif timeframe == MEDIUM_TERM:
         period = st.sidebar.selectbox("Select Period", ["6mo", "1y", "3y"])
