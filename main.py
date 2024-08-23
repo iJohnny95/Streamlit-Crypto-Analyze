@@ -10,6 +10,9 @@ from ta.volume import VolumeWeightedAveragePrice
 import requests
 from requests.exceptions import RequestException
 
+# Clear Streamlit cache to avoid issues with old data
+st.legacy_caching.clear_cache()
+
 # Constants for timeframes
 SHORT_TERM = "Short-Term"
 MEDIUM_TERM = "Medium-Term"
