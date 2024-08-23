@@ -10,8 +10,15 @@ from ta.volume import VolumeWeightedAveragePrice
 import requests
 from requests.exceptions import RequestException
 
+# Function to clear cache in newer versions
+def clear_cache():
+    if "cache" in dir(st):
+        st.cache.clear()
+    else:
+        st.caching.clear_cache()  # For older versions that use st.caching
+
 # Clear Streamlit cache to avoid issues with old data
-st.legacy_caching.clear_cache()
+clear_cache()
 
 # Constants for timeframes
 SHORT_TERM = "Short-Term"
